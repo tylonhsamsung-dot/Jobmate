@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1">
+  <title>JobMate</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <div class="brand">JobMate<span>.</span></div>
+    <div class="subtitle">Your business, organised.</div>
+  </header>
+
+  <main>
+    <section id="dashboard" class="stats">
+      <div class="stat">
+        <small>Customers</small>
+        <strong id="customerCount">0</strong>
+      </div>
+      <div class="stat">
+        <small>Active jobs</small>
+        <strong id="jobCount">0</strong>
+      </div>
+      <div class="stat">
+        <small>Documents</small>
+        <strong id="docCount">0</strong>
+      </div>
+    </section>
+
+    <nav>
+      <button onclick="showTab('customers')">Customers</button>
+      <button onclick="showTab('jobs')">Jobs</button>
+      <button onclick="showTab('documents')">Quotes & invoices</button>
+      <button onclick="showTab('settings')">Backup</button>
+    </nav>
+
+    <section id="customers" class="panel">
+      <h2>Customers</h2>
+      <button class="primary" onclick="addCustomer()">
+        + Add customer
+      </button>
+      <div id="customerList"></div>
+    </section>
+
+    <section id="jobs" class="panel hidden">
+      <h2>Jobs</h2>
+      <button class="primary" onclick="addJob()">+ Add job</button>
+      <div id="jobList"></div>
+    </section>
+
+    <section id="documents" class="panel hidden">
+      <h2>Quotes & invoices</h2>
+      <button class="primary" onclick="addDocument('Quote')">
+        + New quote
+      </button>
+      <button class="primary" onclick="addDocument('Invoice')">
+        + New invoice
+      </button>
+      <div id="documentList"></div>
+    </section>
+
+    <section id="settings" class="panel hidden">
+      <h2>Business details</h2>
+      <label>Business name</label>
+      <input id="businessName" placeholder="Your business name">
+      <label>Phone number</label>
+      <input id="businessPhone" placeholder="e.g. 0712345678">
+      <label>Email address</label>
+      <input id="businessEmail" placeholder="you@example.com">
+      <label>Business address</label>
+      <textarea id="businessAddress"
+        placeholder="Your business address"></textarea>
+      <button class="primary" onclick="saveSettings()">
+        Save business details
+      </button>
+
+      <hr>
+      <h3>Backup and restore</h3>
+      <p>Export a backup and save it somewhere safe.</p>
+      <button class="primary" onclick="exportBackup()">
+        Export backup
+      </button>
+
+      <label>Restore from a backup</label>
+      <p>Paste the contents of a previously exported JSON backup below.</p>
+      <textarea id="restoreText" rows="5"
+        placeholder="Paste backup JSON here"></textarea>
+      <button onclick="restoreBackup()">Restore backup</button>
+      <p class="muted">
+        Restoring replaces the records currently on this phone.
+        Export a backup first.
+      </p>
+    </section>
+
+    <section id="printArea"></section>
+  </main>
+
+  <footer>JobMate · Made for South African small businesses</footer>
+  <script src="app.js"></script>
+</body>
+</html>
