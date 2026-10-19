@@ -1,0 +1,234 @@
+:root {
+  --green: #176b55;
+  --dark: #123d32;
+  --background: #f3f6f5;
+  --border: #dce5e1;
+  --text: #24332e;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--text);
+  font-family: Arial, sans-serif;
+  font-size: 15px;
+}
+
+header {
+  background: var(--dark);
+  color: white;
+  padding: 23px 18px;
+}
+
+.brand {
+  font-size: 27px;
+  font-weight: 800;
+}
+
+.brand span {
+  color: #75d9b5;
+}
+
+.subtitle {
+  margin-top: 4px;
+  color: #d4e9e1;
+}
+
+main {
+  max-width: 760px;
+  margin: auto;
+  padding: 14px;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 9px;
+  margin-bottom: 15px;
+}
+
+.stat, .panel, .record {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+.stat {
+  padding: 14px 8px;
+}
+
+.stat small, .stat strong {
+  display: block;
+}
+
+.stat small {
+  color: #65766f;
+  font-size: 12px;
+}
+
+.stat strong {
+  margin-top: 8px;
+  font-size: 24px;
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-bottom: 14px;
+}
+
+button {
+  border: 1px solid var(--border);
+  background: white;
+  color: var(--dark);
+  border-radius: 8px;
+  padding: 11px 12px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+button:active {
+  opacity: .75;
+}
+
+.primary {
+  background: var(--green);
+  color: white;
+  border-color: var(--green);
+  margin: 4px 4px 10px 0;
+}
+
+.panel {
+  padding: 16px;
+  margin-bottom: 14px;
+}
+
+h2 {
+  margin: 0 0 15px;
+  font-size: 20px;
+}
+
+h3 {
+  margin-top: 18px;
+}
+
+label {
+  display: block;
+  margin: 13px 0 6px;
+  font-weight: 600;
+}
+
+input, textarea, select {
+  display: block;
+  width: 100%;
+  padding: 11px;
+  border: 1px solid #cbd8d2;
+  border-radius: 8px;
+  background: white;
+  color: var(--text);
+  font: inherit;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.record {
+  padding: 13px;
+  margin-top: 10px;
+  overflow-wrap: anywhere;
+}
+
+.record strong {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.record p {
+  margin: 5px 0;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+.muted, footer {
+  color: #687a73;
+  font-size: 12px;
+}
+
+.hidden {
+  display: none;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid var(--border);
+  margin: 22px 0;
+}
+
+footer {
+  text-align: center;
+  padding: 18px;
+}
+
+/* Only the actual business document is printed. */
+#printArea {
+  display: none;
+}
+
+@media print {
+  body {
+    background: white;
+  }
+
+  body > header,
+  body > main > *:not(#printArea),
+  body > footer {
+    display: none !important;
+  }
+
+  body > main {
+    padding: 0;
+    margin: 0;
+    max-width: none;
+  }
+
+  #printArea {
+    display: block !important;
+    color: black;
+    font-size: 12pt;
+    padding: 12mm;
+  }
+
+  #printArea h1 {
+    font-size: 25pt;
+  }
+
+  #printArea table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 22px;
+  }
+
+  #printArea th, #printArea td {
+    border-bottom: 1px solid #bbb;
+    padding: 9px 5px;
+    text-align: left;
+  }
+
+  #printArea .total {
+    text-align: right;
+    font-size: 17pt;
+    margin-top: 20px;
+  }
+}
